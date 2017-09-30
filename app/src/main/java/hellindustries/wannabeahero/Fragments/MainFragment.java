@@ -1,12 +1,14 @@
 package hellindustries.wannabeahero.Fragments;
 
 import android.content.Context;
+import android.graphics.ColorMatrixColorFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import hellindustries.wannabeahero.R;
 
@@ -18,15 +20,13 @@ import hellindustries.wannabeahero.R;
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class MainFragment extends Fragment implements View.OnClickListener{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
+    private Button accidentBtn;
+    private Button mutationBtn;
+    private Button bornBtn;
+    private Button chooseBtn;
 
     private OnFragmentInteractionListener mListener;
 
@@ -38,16 +38,12 @@ public class MainFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment MainFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainFragment newInstance(String param1, String param2) {
+    public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,18 +51,31 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        accidentBtn = (Button) view.findViewById(R.id.accidentBtn);
+        mutationBtn = (Button) view.findViewById(R.id.mutationBtn);
+        bornBtn = (Button) view.findViewById(R.id.bornBtn);
+        chooseBtn = (Button) view.findViewById(R.id.chooseBtn);
+
+        accidentBtn.setOnClickListener(this);
+        mutationBtn.setOnClickListener(this);
+        bornBtn.setOnClickListener(this);
+
+        chooseBtn.setEnabled(false);
+        chooseBtn.getBackground().setAlpha(128);
+
+
+        return view;
+
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -90,6 +99,31 @@ public class MainFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View view) {
+        chooseBtn.setEnabled(true);
+        chooseBtn.getBackground().setAlpha(255);
+
+        Button btn = (Button) view;
+
+        if (btn == accidentBtn) {
+            btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightning,0,R.drawable.item_selected,0);
+            mutationBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.atomic,0,R.drawable.item_unselected,0);
+            bornBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.rocket,0,R.drawable.item_unselected,0);
+        } else if (btn == mutationBtn) {
+            btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.atomic,0,R.drawable.item_selected,0);
+            accidentBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightning,0,R.drawable.item_unselected,0);
+            bornBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.rocket,0,R.drawable.item_unselected,0);
+        } else if  (btn == bornBtn) {
+            btn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.rocket,0,R.drawable.item_selected,0);
+            accidentBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.lightning,0,R.drawable.item_unselected,0);
+            mutationBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.atomic,0,R.drawable.item_unselected,0);
+        }
+
+
+
     }
 
     /**
