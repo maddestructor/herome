@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context="hellindustries.wannabeahero.Activities.MainActivity">
 
+
+
 </android.support.constraint.ConstraintLayout>
