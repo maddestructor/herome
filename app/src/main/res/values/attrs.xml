@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LineDrawing">
+        <attr name="startX" format="integer" />
+        <attr name="startY" format="integer" />
+        <attr name="finalX" format="integer" />
+        <attr name="finalY" format="integer" />
+        <attr name="point1X" format="integer" />
+        <attr name="point1Y" format="integer" />
+        <attr name="point2X" format="integer" />
+        <attr name="point2Y" format="integer" />
+        <attr name="point3X" format="integer" />
+        <attr name="point3Y" format="integer" />
+        <attr name="point4X" format="integer" />
+        <attr name="point4Y" format="integer" />
+        <attr name="point5X" format="integer" />
+        <attr name="point5Y" format="integer" />
+        <attr name="point6X" format="integer" />
+        <attr name="point6Y" format="integer" />
+    </declare-styleable>
+</resources>

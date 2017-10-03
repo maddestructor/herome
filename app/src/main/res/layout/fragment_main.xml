@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_bg"
-    tools:context="hellindustries.wannabeahero.Fragments.MainFragment">
+    tools:context="hellindustries.wannabeahero.Fragments.MainFragment"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/textView"
@@ -22,7 +23,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="32dp" />
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/heroImg"
@@ -42,12 +45,14 @@
         tools:layout_conversion_absoluteHeight="141dp"
         tools:layout_conversion_absoluteWidth="270dp"
         tools:layout_conversion_absoluteX="57dp"
-        tools:layout_conversion_absoluteY="88dp" />
+        tools:layout_conversion_absoluteY="88dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp" />
 
     <Button
         android:id="@+id/accidentBtn"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
@@ -70,12 +75,14 @@
         tools:layout_conversion_absoluteHeight="48dp"
         tools:layout_conversion_absoluteWidth="88dp"
         tools:layout_conversion_absoluteX="148dp"
-        tools:layout_conversion_absoluteY="243dp" />
+        tools:layout_conversion_absoluteY="243dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
 
     <Button
         android:id="@+id/mutationBtn"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
@@ -98,12 +105,14 @@
         tools:layout_conversion_absoluteHeight="48dp"
         tools:layout_conversion_absoluteWidth="88dp"
         tools:layout_conversion_absoluteX="148dp"
-        tools:layout_conversion_absoluteY="243dp" />
+        tools:layout_conversion_absoluteY="243dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
 
     <Button
         android:id="@+id/bornBtn"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="24dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
@@ -126,12 +135,14 @@
         tools:layout_conversion_absoluteHeight="48dp"
         tools:layout_conversion_absoluteWidth="88dp"
         tools:layout_conversion_absoluteX="148dp"
-        tools:layout_conversion_absoluteY="243dp" />
+        tools:layout_conversion_absoluteY="243dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
 
     <Button
         android:id="@+id/chooseBtn"
         android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
@@ -140,13 +151,32 @@
         android:text="Choose powers"
         android:textColor="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_conversion_absoluteHeight="48dp"
         tools:layout_conversion_absoluteWidth="88dp"
         tools:layout_conversion_absoluteX="148dp"
-        tools:layout_conversion_absoluteY="243dp" />
+        tools:layout_conversion_absoluteY="243dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp" />
+
+    <hellindustries.wannabeahero.CustomViews.LineDrawing
+        android:id="@+id/mainFragmentLine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        custom:finalX="0"
+        custom:finalY="0"
+        custom:startX="0"
+        custom:startY="0"
+        android:layout_marginRight="0dp"
+        app:layout_constraintVertical_bias="0.50"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
