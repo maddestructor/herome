@@ -2,6 +2,8 @@ package hellindustries.wannabeahero.CustomViews;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.support.annotation.Nullable;
@@ -33,6 +35,14 @@ public class LineDrawing extends View {
 
     private void init(){
         mCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mLine = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mLine.setColor(Color.parseColor("#ffffff"));                    // set the color
+        mLine.setStrokeWidth((float) 1.0);               // set the size
+        mLine.setDither(true);                    // set the dither to true
+        mLine.setStyle(Paint.Style.STROKE);       // set to STOKE
+        mLine.setStrokeJoin(Paint.Join.ROUND);    // set the join to round you want
+        mLine.setStrokeCap(Paint.Cap.ROUND);      // set the paint cap to round too
+        mLine.setPathEffect(new CornerPathEffect(10) );   // set the path effect when they join.
 
     }
 

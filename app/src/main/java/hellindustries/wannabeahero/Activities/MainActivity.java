@@ -36,8 +36,7 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
     public void onMainFragmentInteraction(int powerAcquisitionChoice) {
         this.powerAcquisitionChoice = powerAcquisitionChoice;
         PickPowerFragment pickPowerFragment = PickPowerFragment.newInstance();
-        getSupportFragmentManager().beginTransaction()
-                .addToBackStack(null)
+        getSupportFragmentManager().beginTransaction().addToBackStack(null)
                 .replace(R.id.fragment_container, pickPowerFragment)
                 .commit();
     }
