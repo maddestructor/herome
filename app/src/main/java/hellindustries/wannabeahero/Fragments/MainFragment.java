@@ -35,6 +35,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     public static final int GENETIC_MUTATION = 1;
     public static final int BORN_WITH_THEM = 2;
     public static final int DURATION = 500;
+    public static final int DEACTIVATED_BUTTON_ALPHA = 128;
+    public static final int ACTIVATED_BUTTON_ALPHA = 255;
 
 
     private OnMainFragmentInteractionListener mListener;
@@ -78,7 +80,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         chooseBtn.setOnClickListener(this);
 
         chooseBtn.setEnabled(false);
-        chooseBtn.getBackground().setAlpha(128);
+        chooseBtn.getBackground().setAlpha(DEACTIVATED_BUTTON_ALPHA);
 
 
         return view;
@@ -115,7 +117,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         chooseBtn.setEnabled(true);
-        chooseBtn.getBackground().setAlpha(255);
+        chooseBtn.getBackground().setAlpha(ACTIVATED_BUTTON_ALPHA);
 
         Button btn = (Button) view;
 

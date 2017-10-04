@@ -14,6 +14,7 @@ import hellindustries.wannabeahero.R;
 public class MainActivity extends AppCompatActivity implements MainFragment.OnMainFragmentInteractionListener, PickPowerFragment.PickPowerInteractionListener {
 
     private int powerAcquisitionChoice;
+    private int mainPowerChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity implements MainFragment.OnMa
     }
 
     @Override
-    public void PickPowerInteraction(Uri uri) {
+    public void PickPowerInteraction(int mainPowerChoice) {
+        this.mainPowerChoice = mainPowerChoice;
 
     }
 }
