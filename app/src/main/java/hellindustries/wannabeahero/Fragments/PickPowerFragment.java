@@ -1,10 +1,9 @@
 package hellindustries.wannabeahero.Fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +11,14 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.Button;
 
-import com.labo.kaji.fragmentanimations.MoveAnimation;
+import com.labo.kaji.fragmentanimations.*;
 
 import hellindustries.wannabeahero.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PickPowerFragment.PickPowerInteractionListener} interface
+ * {@link OnPickPowerInteractionListener} interface
  * to handle interaction events.
  * Use the {@link PickPowerFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -35,14 +34,19 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener 
     private Button strengthBtn;
     private Button backstoryBtn;
 
+    private int previousFragment;
+
     private int selectedChoice;
 
 
-    private PickPowerInteractionListener mListener;
+    private OnPickPowerInteractionListener mListener;
 
     public static final int DURATION = 500;
     public static final int DEACTIVATED_BUTTON_ALPHA = 128;
     public static final int ACTIVATED_BUTTON_ALPHA = 255;
+
+    public static final int PREVIOUS_BACKSTORY_FRAGMENT = 0;
+    public static final int PREVIOUS_MAIN_FRAGMENT = 1;
 
     public static final int TURTLE_POWER = 0;
     public static final int LIGHTNING_POWER = 1;
@@ -92,8 +96,8 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof PickPowerInteractionListener) {
-            mListener = (PickPowerInteractionListener) context;
+        if (context instanceof OnPickPowerInteractionListener) {
+            mListener = (OnPickPowerInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -108,18 +112,22 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        if(getFragmentManager().getBackStackEntryCount() == 2) {
+
+        if(previousFragment == PREVIOUS_BACKSTORY_FRAGMENT) {
             if(enter) {
+                setPreviousFragment(PREVIOUS_MAIN_FRAGMENT);
                 return MoveAnimation.create(MoveAnimation.RIGHT, enter, DURATION);
             } else {
                 return MoveAnimation.create(MoveAnimation.LEFT, enter, DURATION);
+            }
+        } else if (previousFragment == PREVIOUS_MAIN_FRAGMENT) {
+            if(enter) {
+                return MoveAnimation.create(MoveAnimation.LEFT, enter, DURATION);
+            } else {
+                return MoveAnimation.create(MoveAnimation.RIGHT, enter, DURATION);
             }
         } else {
-            if(enter) {
-                return MoveAnimation.create(MoveAnimation.LEFT, enter, DURATION);
-            } else {
-                return MoveAnimation.create(MoveAnimation.RIGHT, enter, DURATION);
-            }
+            return MoveAnimation.create(MoveAnimation.LEFT, enter, DURATION);
         }
 
     }
@@ -198,7 +206,7 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener 
             setButtonUnselected(laserBtn, R.drawable.laser_vision);
 
         } else if (btn == backstoryBtn){
-            mListener.PickPowerInteraction(selectedChoice);
+            mListener.onPickPowerInteraction(selectedChoice, this);
         }
 
     }
@@ -232,6 +240,10 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener 
         backstoryBtn.setOnClickListener(listener);
     }
 
+    public void setPreviousFragment(int previousFragment) {
+        this.previousFragment = previousFragment;
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -242,7 +254,7 @@ public class PickPowerFragment extends Fragment implements View.OnClickListener 
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface PickPowerInteractionListener {
-        void PickPowerInteraction(int selectedChoice);
+    public interface OnPickPowerInteractionListener {
+        void onPickPowerInteraction(int selectedChoice, @Nullable PickPowerFragment pickPowerFragment);
     }
 }

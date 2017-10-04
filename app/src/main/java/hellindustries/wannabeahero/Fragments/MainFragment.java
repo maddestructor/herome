@@ -2,6 +2,7 @@ package hellindustries.wannabeahero.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,7 @@ import hellindustries.wannabeahero.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MainFragment.OnMainFragmentInteractionListener} interface
+ * {@link OnMainFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link MainFragment#newInstance} factory method to
  * create an instance of this fragment.
