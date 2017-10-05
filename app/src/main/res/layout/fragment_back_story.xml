@@ -11,8 +11,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:lineSpacingExtra="18sp"
@@ -42,8 +42,6 @@
         android:id="@+id/primaryLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
         android:paddingTop="8dp"
         android:text="PRIMARY POWER"
         android:textStyle="bold"
@@ -57,8 +55,6 @@
         android:id="@+id/secondaryLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
         android:paddingTop="0dp"
         android:text="SECONDARY POWER"
         android:textStyle="bold"
@@ -68,7 +64,7 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/secondaryPowerBtn" />
 
-    <TextView
+    <ScrollView
         android:id="@+id/backstoryText"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -76,23 +72,33 @@
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
         android:layout_marginTop="48dp"
-        android:autoText="true"
-        android:text="Bacon ipsum dolor amet swine meatball leberkas, strip steak beef ribs brisket pig sirloin. Filet mignon short loin ribeye meatloaf beef ribs flank, sirloin hamburger biltong pastrami tongue doner. Picanha t-bone frankfurter porchetta pastrami leberkas chuck boudin jerky pig brisket. Swine jerky andouille turkey bacon chicken, tongue beef ribs filet mignon bresaola biltong pastrami ground round tri-tip sausage. Beef ribs ball tip pork belly brisket pastrami venison tenderloin sirloin t-bone turducken chuck fatback swine burgdoggen chicken. Chuck short loin beef ribs, picanha brisket frankfurter fatback kielbasa tenderloin filet mignon ham t-bone pancetta doner swine.  Salami pig short ribs swine shoulder meatball ham. Ham shank hamburger boudin kielbasa ribeye swine strip steak. Bresaola shank filet mignon cupim strip steak, ribeye beef hamburger t-bone cow ham meatball shoulder. Kielbasa shankle tri-tip short loin, pork chop leberkas bresaola shoulder tail ground round fatback brisket frankfurter andouille. Strip steak short loin bresaola corned beef andouille pig, pork chop prosciutto pork belly brisket porchetta shoulder. Shoulder landjaeger pork chop, pork loin fatback beef ribs burgdoggen t-bone ribeye chicken spare ribs."
-        android:textAlignment="center"
-        android:textSize="14sp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp"
         app:layout_constraintBottom_toTopOf="@+id/primaryLabel"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/imageView2">
+
+        <TextView
+            android:id="@+id/backstoryTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="            Bacon ipsum dolor amet swine meatball leberkas, strip steak beef ribs brisket pig sirloin. Filet mignon short loin ribeye meatloaf beef ribs flank, sirloin hamburger biltong pastrami tongue doner. Picanha t-bone frankfurter porchetta pastrami leberkas chuck boudin jerky pig brisket. Swine jerky andouille turkey bacon chicken, tongue beef ribs filet mignon bresaola biltong pastrami ground round tri-tip sausage. Beef ribs ball tip pork belly brisket pastrami venison tenderloin sirloin t-bone turducken chuck fatback swine burgdoggen chicken. Chuck short loin beef ribs, picanha brisket frankfurter fatback kielbasa tenderloin filet mignon ham t-bone pancetta doner swine.  Salami pig short ribs swine shoulder meatball ham. Ham shank hamburger boudin kielbasa ribeye swine strip steak. Bresaola shank filet mignon cupim strip steak, ribeye beef hamburger t-bone cow ham meatball shoulder. Kielbasa shankle tri-tip short loin, pork chop leberkas bresaola shoulder tail ground round fatback brisket frankfurter andouille. Strip steak short loin bresaola corned beef andouille pig, pork chop prosciutto pork belly brisket porchetta shoulder. Shoulder landjaeger pork chop, pork loin fatback beef ribs burgdoggen t-bone ribeye chicken spare ribs. Capicola pork loin short loin cow landjaeger flank. Burgdoggen fatback pig shank prosciutto shoulder. Flank spare ribs leberkas pig beef ribs brisket short loin prosciutto kevin burgdoggen pork belly frankfurter alcatra. Corned beef ball tip chuck sausage pork chop pancetta picanha short loin andouille strip steak kevin chicken capicola. Prosciutto shoulder flank sausage cupim, shankle pork spare ribs ham salami jerky beef frankfurter pastrami andouille. Alcatra leberkas pork loin cow ground round, fatback swine pig chicken beef shoulder frankfurter corned beef meatball capicola.  Meatball leberkas hamburger kielbasa swine. Turkey rump ribeye fatback pork, filet mignon landjaeger brisket leberkas ham hock pig cupim drumstick porchetta bresaola. Pig salami strip steak pancetta, burgdoggen boudin spare ribs sirloin andouille frankfurter cupim. Frankfurter tongue salami bacon andouille sirloin chuck t-bone biltong turkey pork chop kevin cupim picanha rump.  Jerky fatback drumstick sausage short ribs. Biltong burgdoggen sirloin corned beef, chuck frankfurter venison. Andouille pancetta t-bone ham ham hock meatball bacon pastrami turducken porchetta leberkas. Tongue shank spare ribs hamburger tail meatball short ribs doner swine."
+            android:textAlignment="center"
+            android:textSize="14sp" />
+
+    </ScrollView>
+
+
 
     <Button
         android:id="@+id/primaryPowerBtn"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginStart="32dp"
         android:background="@drawable/hero_button"
         android:drawableLeft="@drawable/super_man_crest"
@@ -119,10 +125,10 @@
     <Button
         android:id="@+id/secondaryPowerBtn"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginStart="32dp"
         android:background="@drawable/hero_button"
         android:drawableLeft="@drawable/super_strength"
@@ -171,7 +177,6 @@
         android:id="@+id/imageView2"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginLeft="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="@+id/backstoryText"
         app:layout_constraintTop_toBottomOf="@+id/backstoryFragmentHeader"
